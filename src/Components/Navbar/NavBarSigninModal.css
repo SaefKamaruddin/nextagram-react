@@ -1,0 +1,17 @@
+.signInButton {
+  border: none;
+  background: none;
+  font-size: 25px;
+  width: 100px;
+  top: 20px;
+}
+
+.signInBox {
+  display: flex;
+  justify-content: center;
+}
+
+.signInField {
+  width: 180px;
+  height: 30px;
+}

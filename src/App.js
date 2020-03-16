@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import HomePage from "./pages/HomePage.js";
+import NavBar from "./Components/Navbar/NavBar.js";
+import UserProfilePage from "./pages/UserProfilePage.js";
+import MyprofilePage from "./pages/Myprofilepage.js";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  const [logIn, setLogIn] = useState(localStorage.getItem("token"));
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar logIn={logIn} setLogIn={setLogIn} />
+      <div className="main">
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnVisibilityChange
+          draggable
+        />
+        <Switch>
+          <Route exact path="/users/me" component={() => <MyprofilePage />} />
+          <Route path="/users/:id" component={UserProfilePage} />
+          <Route exact path="/" component={HomePage} />
+        </Switch>
+      </div>
     </div>
   );
 }

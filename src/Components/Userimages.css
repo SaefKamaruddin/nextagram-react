@@ -1,0 +1,12 @@
+.userImg {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.userImg img {
+  margin: 5px;
+  width: 100px;
+  height: 100px;
+  border-radius: 5%;
+}
