@@ -7,7 +7,6 @@ import UserProfilePage from "./pages/UserProfilePage.js";
 import MyprofilePage from "./pages/Myprofilepage.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [logIn, setLogIn] = useState(localStorage.getItem("token"));
